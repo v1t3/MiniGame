@@ -472,8 +472,8 @@ GameObject:
   m_Component:
   - component: {fileID: 227002243}
   - component: {fileID: 227002244}
-  - component: {fileID: 227002245}
   - component: {fileID: 227002246}
+  - component: {fileID: 227002245}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -532,6 +532,8 @@ MonoBehaviour:
   friction: 1.5
   colliderTransform: {fileID: 1648194144}
   squatRate: 10
+  aimTransform: {fileID: 1865878960}
+  rotateSpeed: 10
 --- !u!75 &227002246
 ConstantForce:
   m_ObjectHideFlags: 0
