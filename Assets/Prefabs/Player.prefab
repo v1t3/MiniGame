@@ -561,15 +561,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRb: {fileID: 4783474977193835723}
-  moveSpeed: 30
-  jumpSpeed: 1200
+  bodyTransform: {fileID: 4783474975937656173}
+  moveForce: 3
+  jumpForce: 11
   maxSpeed: 5
-  friction: 1.5
+  friction: 0.2
+  forceMultiplierGrounded: 1
+  forceMultiplierJump: 0.5
   colliderTransform: {fileID: 4783474976665700655}
   squatRate: 10
   aimTransform: {fileID: 0}
   rotateSpeed: 10
   rotateRate: 60
+  _grounded: 0
 --- !u!1 &4783474977729579258
 GameObject:
   m_ObjectHideFlags: 0
