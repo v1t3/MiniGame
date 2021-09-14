@@ -8,7 +8,7 @@ public class Pointer : MonoBehaviour
     
     [SerializeField] private Transform aim;
 
-    private void Update()
+    private void LateUpdate()
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         Plane plane = new Plane(-Vector3.forward, Vector3.zero);
