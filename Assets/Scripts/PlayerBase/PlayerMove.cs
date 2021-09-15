@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float moveForce = 1f;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float maxSpeed = 5f;
-    [SerializeField] private float friction;
+    [SerializeField] private float friction = 0.1f;
     [SerializeField] private float forceMultiplierGrounded = 1f;
     [SerializeField] private float forceMultiplierJump = 0.5f;
 
@@ -19,7 +19,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float squatRate = 10f;
 
     [SerializeField] private Transform aimTransform;
-    [SerializeField] private float rotateSpeed = 1;
+    [SerializeField] private float rotateSpeed = 10;
     [SerializeField] private float rotateRate = 60;
     private float _smoothY = 0;
 
@@ -52,6 +52,11 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+    }
+
+    private void Jump()
+    {
+        playerRb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
     }
 
     private void LookOnCursor()
@@ -93,17 +98,17 @@ public class PlayerMove : MonoBehaviour
         if (!_grounded)
         {
             speedMultiplier = forceMultiplierJump;
+            
+            if (
+                (Input.GetAxis("Horizontal") > 0 && playerRb.velocity.x > maxSpeed) ||
+                (Input.GetAxis("Horizontal") < 0 && playerRb.velocity.x < -maxSpeed)
+            )
+            {
+                speedMultiplier = 0;
+            }
         } else {
             //Friction
             playerRb.AddForce(-playerRb.velocity.x * friction, 0, 0, ForceMode.VelocityChange);
-        }
-            
-        if (
-            (Input.GetAxis("Horizontal") > 0 && playerRb.velocity.x > maxSpeed) ||
-            (Input.GetAxis("Horizontal") < 0 && playerRb.velocity.x < -maxSpeed)
-        )
-        {
-            speedMultiplier = 0;
         }
 
         //Moving
@@ -113,10 +118,5 @@ public class PlayerMove : MonoBehaviour
             0,
             ForceMode.VelocityChange
         );
-    }
-
-    private void Jump()
-    {
-        playerRb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
     }
 }
