@@ -1,67 +1,68 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using UI;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+namespace PlayerBase
 {
-    [SerializeField] private int health = 5;
-    [SerializeField] private int maxHealth = 8;
-    [SerializeField] private AudioSource takeDamageSound;
-    [SerializeField] private AudioSource addHealthSound;
-
-    [SerializeField] private HealthUI healthUI;
-    
-    [SerializeField] private DamageScreen damageScreen;
-    
-    private bool _invulnerable;
-
-    private void Start()
+    public class PlayerHealth : MonoBehaviour
     {
-        healthUI.Setup(maxHealth);
-        healthUI.DisplayHealth(health);
-    }
+        [SerializeField] private int health = 5;
+        [SerializeField] private int maxHealth = 8;
+        [SerializeField] private AudioSource takeDamageSound;
+        [SerializeField] private AudioSource addHealthSound;
 
-    public void TakeDamage(int damageValue)
-    {
-        if (_invulnerable) return;
-        
-        health -= damageValue;
+        [SerializeField] private Health healthUI;
+    
+        [SerializeField] private DamageScreen damageScreen;
+    
+        private bool _invulnerable;
 
-        if (health <= 0)
+        private void Start()
         {
-            health = 0;
-            Die();
+            healthUI.Setup(maxHealth);
+            healthUI.DisplayHealth(health);
         }
+
+        public void TakeDamage(int damageValue)
+        {
+            if (_invulnerable) return;
+        
+            health -= damageValue;
+
+            if (health <= 0)
+            {
+                health = 0;
+                Die();
+            }
             
-        _invulnerable = true;
-        Invoke(nameof(StopInvulnerable), 1f);
+            _invulnerable = true;
+            Invoke(nameof(StopInvulnerable), 1f);
 
-        takeDamageSound.Play();
-        healthUI.DisplayHealth(health);
-        damageScreen.StartEffect();
-    }
-
-    private void StopInvulnerable()
-    {
-        _invulnerable = false;
-    }
-
-    public void AddHealth(int healthValue)
-    {
-        health += healthValue;
-
-        if (health > maxHealth)
-        {
-            health = maxHealth;
+            takeDamageSound.Play();
+            healthUI.DisplayHealth(health);
+            damageScreen.StartEffect();
         }
-        
-        addHealthSound.Play();
-        healthUI.DisplayHealth(health);
-    }
 
-    private void Die()
-    {
-        Debug.Log("Die");
+        private void StopInvulnerable()
+        {
+            _invulnerable = false;
+        }
+
+        public void AddHealth(int healthValue)
+        {
+            health += healthValue;
+
+            if (health > maxHealth)
+            {
+                health = maxHealth;
+            }
+        
+            addHealthSound.Play();
+            healthUI.DisplayHealth(health);
+        }
+
+        private void Die()
+        {
+            Debug.Log("Die");
+        }
     }
 }

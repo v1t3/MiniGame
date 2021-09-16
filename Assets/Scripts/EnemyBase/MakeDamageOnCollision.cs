@@ -1,17 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using PlayerBase;
 using UnityEngine;
 
-public class MakeDamageOnCollision : MonoBehaviour
+namespace EnemyBase
 {
-    [SerializeField] private int damageValue = 1;
-    
-    private void OnCollisionEnter(Collision other)
+    public class MakeDamageOnCollision : MonoBehaviour
     {
-        if (other.rigidbody && other.rigidbody.GetComponent<PlayerHealth>())
+        [SerializeField] private int damageValue = 1;
+    
+        private void OnCollisionEnter(Collision other)
         {
-            other.rigidbody.GetComponent<PlayerHealth>().TakeDamage(damageValue);
+            if (other.rigidbody && other.rigidbody.GetComponent<PlayerHealth>())
+            {
+                other.rigidbody.GetComponent<PlayerHealth>().TakeDamage(damageValue);
+            }
         }
     }
 }

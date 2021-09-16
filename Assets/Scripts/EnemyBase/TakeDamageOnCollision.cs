@@ -1,17 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TakeDamageOnCollision : MonoBehaviour
+namespace EnemyBase
 {
-    [SerializeField] private EnemyHealth enemyHealth;
-
-    private void OnCollisionEnter(Collision other)
+    public class TakeDamageOnCollision : MonoBehaviour
     {
-        if (other.rigidbody && other.rigidbody.GetComponent<Bullet>())
+        [SerializeField] private EnemyHealth enemyHealth;
+
+        private void OnCollisionEnter(Collision other)
         {
-            enemyHealth.TakeDamage(1);
+            if (other.rigidbody && other.rigidbody.GetComponent<Bullet>())
+            {
+                enemyHealth.TakeDamage(1);
+            }
         }
     }
 }

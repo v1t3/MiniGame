@@ -291,7 +291,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 60312878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104b71206629a5f4587af68d7f6a48ba, type: 3}
+  m_Script: {fileID: 11500000, guid: c7134446d79db344e8a251fee1f4285d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthIconPrefab: {fileID: 6525616600456491513, guid: 2bf9b924e0b8b184c958ced94d423fc4, type: 3}
