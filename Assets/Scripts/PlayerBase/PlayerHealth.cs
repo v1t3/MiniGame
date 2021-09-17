@@ -1,5 +1,6 @@
 using UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PlayerBase
 {
@@ -7,14 +8,14 @@ namespace PlayerBase
     {
         [SerializeField] private int health = 5;
         [SerializeField] private int maxHealth = 8;
-        [SerializeField] private AudioSource takeDamageSound;
-        [SerializeField] private AudioSource addHealthSound;
 
         [SerializeField] private Health healthUI;
     
-        [SerializeField] private DamageScreen damageScreen;
-    
         private bool _invulnerable;
+
+        [SerializeField] private UnityEvent eventOnTakeDamage;
+        [SerializeField] private UnityEvent eventOnAddHealth;
+        [SerializeField] private UnityEvent eventOnDie;
 
         private void Start()
         {
@@ -36,10 +37,10 @@ namespace PlayerBase
             
             _invulnerable = true;
             Invoke(nameof(StopInvulnerable), 1f);
+            
+            eventOnTakeDamage.Invoke();
 
-            takeDamageSound.Play();
             healthUI.DisplayHealth(health);
-            damageScreen.StartEffect();
         }
 
         private void StopInvulnerable()
@@ -56,13 +57,14 @@ namespace PlayerBase
                 health = maxHealth;
             }
         
-            addHealthSound.Play();
             healthUI.DisplayHealth(health);
+            eventOnAddHealth.Invoke();
         }
 
         private void Die()
         {
             Debug.Log("Die");
+            eventOnDie.Invoke();
         }
     }
 }

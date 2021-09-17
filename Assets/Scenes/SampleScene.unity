@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 66e53f88ca3eb0c4c93e18b6b3cd9be7, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 28ca333997b116f46b00dfc5b7d6db03, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -552,6 +552,7 @@ GameObject:
   - component: {fileID: 227002247}
   - component: {fileID: 227002246}
   - component: {fileID: 227002245}
+  - component: {fileID: 227002248}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -607,10 +608,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   maxHealth: 8
-  takeDamageSound: {fileID: 2083989016}
-  addHealthSound: {fileID: 244540692}
   healthUI: {fileID: 60312881}
-  damageScreen: {fileID: 254809128}
+  eventOnTakeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 254809128}
+        m_TargetAssemblyTypeName: UI.DamageScreen, Assembly-CSharp
+        m_MethodName: StartEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 227002248}
+        m_TargetAssemblyTypeName: Blink, Assembly-CSharp
+        m_MethodName: StartBlink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2083989016}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  eventOnAddHealth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 244540692}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!75 &227002246
 ConstantForce:
   m_ObjectHideFlags: 0
@@ -649,6 +701,23 @@ MonoBehaviour:
   rotateSpeed: 10
   rotateRate: 60
   _grounded: 0
+--- !u!114 &227002248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227002242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8cb470a1522a6e4aa2967e9da5b4b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkTime: 0.6
+  blinkSpeed: 30
+  rendererList:
+  - {fileID: 1648194142}
+  - {fileID: 215845663}
 --- !u!1 &244540691
 GameObject:
   m_ObjectHideFlags: 0
