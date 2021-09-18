@@ -19,6 +19,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &228228282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159213167479621066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 937b35dc942701e4885fa923bdbeece8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawn: {fileID: 1077708697797129982}
+  objectPrefab: {fileID: 4209811404544059017, guid: 360aee4e37a6b6a43bda79cf0260c8a7, type: 3}
+  flySpeed: 4
 --- !u!114 &159213167479620660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,22 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1077708698675264319}
---- !u!114 &159213167479621067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159213167479621066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea90af083ec94664aad515ff38ebd3b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawn: {fileID: 1077708697797129982}
-  target: {fileID: 0}
-  bulletPrefab: {fileID: 4209811404544059017, guid: 360aee4e37a6b6a43bda79cf0260c8a7, type: 3}
-  flySpeed: 4
 --- !u!1 &1077708697797129981
 GameObject:
   m_ObjectHideFlags: 0
