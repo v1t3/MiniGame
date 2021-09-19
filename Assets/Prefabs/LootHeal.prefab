@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 3959113926555166305}
   - component: {fileID: 3959113926555166302}
   m_Layer: 0
-  m_Name: Loot_Heal
+  m_Name: LootHeal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
