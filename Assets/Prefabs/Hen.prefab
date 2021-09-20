@@ -161,11 +161,11 @@ GameObject:
   - component: {fileID: 3384647762896792180}
   - component: {fileID: 3384647762896792181}
   - component: {fileID: 3384647762896792186}
+  - component: {fileID: 3384647762896792177}
   - component: {fileID: 3384647762896792187}
   - component: {fileID: 3384647762896792183}
   - component: {fileID: 3298505014688173777}
   - component: {fileID: 3384647762896792182}
-  - component: {fileID: 3384647762896792177}
   - component: {fileID: 3384647762896792176}
   m_Layer: 0
   m_Name: Hen
@@ -263,6 +263,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3384647762896792177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3384647762896792184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004c4e75469faf14db411b68468a9fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 3384647762896792181}
+  speed: 4
+  timeToReachSpeed: 2
 --- !u!114 &3384647762896792187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,21 +341,6 @@ MonoBehaviour:
   - {fileID: 2075230671009920101}
   - {fileID: 1245408092712532695}
   - {fileID: 4429543523647629131}
---- !u!114 &3384647762896792177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3384647762896792184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 004c4e75469faf14db411b68468a9fe1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 3384647762896792181}
-  speed: 4
-  timeToReachSpeed: 3
 --- !u!153 &3384647762896792176
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -353,7 +353,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 42.37, y: 1.71, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
