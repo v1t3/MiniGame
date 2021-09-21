@@ -12,12 +12,13 @@ namespace EnemyBase
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.attachedRigidbody && other.attachedRigidbody.GetComponent<Bullet>())
+            if (other.attachedRigidbody &&
+                other.attachedRigidbody.GetComponent<Bullet>())
             {
                 enemyHealth.TakeDamage(1);
             }
 
-            if (dieOnAnyTrigger)
+            if (dieOnAnyTrigger && !other.isTrigger)
             {
                 enemyHealth.TakeDamage(10000);
             }
