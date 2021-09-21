@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
     private void Shot()
     {
         var newBullet = Instantiate(bulletPrefab, spawn.position, Quaternion.identity);
-        newBullet.GetComponent<Rigidbody>().velocity = spawn.forward * bulletSpeed * Time.deltaTime;
+        newBullet.GetComponent<Rigidbody>().velocity = spawn.forward * bulletSpeed;
         
         shotSound.Play();
         StartCoroutine(ShowFlash());
