@@ -10,10 +10,15 @@ namespace EnemyBase
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.rigidbody && other.rigidbody.GetComponent<Bullet>())
+            if (other.rigidbody)
             {
-                enemyHealth.TakeDamage(1);
-                other.gameObject.SetActive(false);
+                var bullet = other.rigidbody.GetComponent<Bullet>();
+
+                if (null != bullet)
+                {
+                    enemyHealth.TakeDamage(1);
+                    bullet.Die();
+                }
             }
 
             if (dieOnAnyCollision)

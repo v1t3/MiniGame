@@ -12,12 +12,15 @@ namespace EnemyBase
 
         private void OnTriggerEnter(Collider other)
         {
-            if (
-                other.attachedRigidbody &&
-                other.attachedRigidbody.GetComponent<Bullet>())
+            if (other.attachedRigidbody)
             {
-                enemyHealth.TakeDamage(1);
-                other.gameObject.SetActive(false);
+                var bullet = other.attachedRigidbody.GetComponent<Bullet>();
+
+                if (null != bullet)
+                {
+                    enemyHealth.TakeDamage(1);
+                    bullet.Die();
+                }
             }
 
             if (dieOnAnyTrigger && !other.isTrigger)

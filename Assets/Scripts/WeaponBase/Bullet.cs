@@ -14,6 +14,11 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        Die();
+    }
+
+    public void Die()
+    {
         Destroy(Instantiate(effectPrefab, transform.position, Quaternion.identity), 2);
         Destroy(gameObject);
     }
