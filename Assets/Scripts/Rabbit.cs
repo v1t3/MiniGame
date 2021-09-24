@@ -10,25 +10,33 @@ public class Rabbit : MonoBehaviour
     [SerializeField] private Animator animator;
 
     [SerializeField] private float attackPeriod = 5;
-    [SerializeField] private float attackRadius = 10;
+
+    private bool _isPlayerVisible;
 
     private float _timer;
     private static readonly int Attack = Animator.StringToHash("Attack");
+
+    private void Start()
+    {
+        _timer = attackPeriod;
+    }
 
     private void Update()
     {
         _timer += Time.deltaTime;
 
-        if (_timer > attackPeriod)
+        if (_timer > attackPeriod && _isPlayerVisible)
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, attackRadius);
-
-            if (colliders.Any(colliderItem =>
-                colliderItem.attachedRigidbody && colliderItem.attachedRigidbody.GetComponent<PlayerMove>()))
-            {
-                _timer = 0;
-                animator.SetTrigger(Attack);
-            }
+            _timer = 0;
+            animator.SetTrigger(Attack);
         }
+    }
+
+    /**
+     * Using in Events
+     */
+    public void SetPlayerVisible(bool value)
+    {
+        _isPlayerVisible = value;
     }
 }

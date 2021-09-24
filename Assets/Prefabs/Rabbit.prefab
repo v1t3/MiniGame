@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 1077708698076124262}
   - component: {fileID: 1077708698076124261}
   - component: {fileID: 1077708698076124260}
+  - component: {fileID: 1588289770}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Untagged
@@ -192,7 +193,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1077708697441071707}
   attackPeriod: 4
-  attackRadius: 8
 --- !u!114 &1077708698076124263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +315,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 1077708698076124263}
   dieOnAnyTrigger: 0
+--- !u!114 &1588289770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077708698076124280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6018358dd8cb3f42af1e8d188c02add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundaryDistance: 10
+  onTargetVisible:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1077708698076124283}
+        m_TargetAssemblyTypeName: Rabbit, Assembly-CSharp
+        m_MethodName: SetPlayerVisible
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onTargetInvisible:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1077708698076124283}
+        m_TargetAssemblyTypeName: Rabbit, Assembly-CSharp
+        m_MethodName: SetPlayerVisible
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1077708698338617806
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,6 +1003,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6391f5ca14772f4fa1330a87cda32bc, type: 3}
+--- !u!23 &2853437413729052375 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6238127134622343604, guid: d6391f5ca14772f4fa1330a87cda32bc, type: 3}
+  m_PrefabInstance: {fileID: 1077708697255098523}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &8129364035593801859 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 9089820807254419480, guid: d6391f5ca14772f4fa1330a87cda32bc, type: 3}
@@ -988,11 +1036,6 @@ MeshRenderer:
 --- !u!23 &7483256872737584646 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7578735892412173981, guid: d6391f5ca14772f4fa1330a87cda32bc, type: 3}
-  m_PrefabInstance: {fileID: 1077708697255098523}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &3266819794334473238 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 2567853412338656397, guid: d6391f5ca14772f4fa1330a87cda32bc, type: 3}
   m_PrefabInstance: {fileID: 1077708697255098523}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &1868729687103727219 stripped
@@ -1025,8 +1068,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d6391f5ca14772f4fa1330a87cda32bc, type: 3}
   m_PrefabInstance: {fileID: 1077708697255098523}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &2853437413729052375 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -6238127134622343604, guid: d6391f5ca14772f4fa1330a87cda32bc, type: 3}
+--- !u!137 &3266819794334473238 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2567853412338656397, guid: d6391f5ca14772f4fa1330a87cda32bc, type: 3}
   m_PrefabInstance: {fileID: 1077708697255098523}
   m_PrefabAsset: {fileID: 0}
