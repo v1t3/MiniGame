@@ -253,7 +253,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3298505014688173777}
         m_TargetAssemblyTypeName: MakeSound, Assembly-CSharp
-        m_MethodName: CreateAndPlay
+        m_MethodName: CreateNewSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
