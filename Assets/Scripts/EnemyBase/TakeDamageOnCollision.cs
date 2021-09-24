@@ -13,6 +13,7 @@ namespace EnemyBase
             if (other.rigidbody && other.rigidbody.GetComponent<Bullet>())
             {
                 enemyHealth.TakeDamage(1);
+                other.gameObject.SetActive(false);
             }
 
             if (dieOnAnyCollision)

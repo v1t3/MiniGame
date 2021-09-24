@@ -9,31 +9,20 @@ namespace EnemyBase
         [SerializeField] private EnemyHealth enemyHealth;
 
         [SerializeField] private bool dieOnAnyTrigger;
-        
-        private float _timer;
-
-        private void Update()
-        {
-            _timer += Time.deltaTime;
-        }
 
         private void OnTriggerEnter(Collider other)
         {
-            //Fix double trigger
-            if (_timer > 0.1f)
+            if (
+                other.attachedRigidbody &&
+                other.attachedRigidbody.GetComponent<Bullet>())
             {
-                if (
-                    other.attachedRigidbody &&
-                    other.attachedRigidbody.GetComponent<Bullet>())
-                {
-                    _timer = 0;
-                    enemyHealth.TakeDamage(1);
-                }
+                enemyHealth.TakeDamage(1);
+                other.gameObject.SetActive(false);
+            }
 
-                if (dieOnAnyTrigger && !other.isTrigger)
-                {
-                    enemyHealth.TakeDamage(10000);
-                }
+            if (dieOnAnyTrigger && !other.isTrigger)
+            {
+                enemyHealth.TakeDamage(10000);
             }
         }
     }
