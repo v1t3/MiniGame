@@ -1,25 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Bullet : MonoBehaviour
+namespace WeaponBase
 {
-    [SerializeField] private GameObject effectPrefab;
-    
-    private void Start()
+    public class Bullet : MonoBehaviour
     {
-        Destroy(gameObject, 10);
-    }
+        [SerializeField] private UnityEvent onDie;
 
-    private void OnCollisionEnter(Collision other)
-    {
-        Die();
-    }
+        private void Start()
+        {
+            Destroy(gameObject, 10);
+        }
 
-    public void Die()
-    {
-        Destroy(Instantiate(effectPrefab, transform.position, Quaternion.identity), 2);
-        Destroy(gameObject);
+        private void OnCollisionEnter(Collision other)
+        {
+            Die();
+        }
+
+        public void Die()
+        {
+            onDie.Invoke();
+            Destroy(gameObject);
+        }
     }
 }

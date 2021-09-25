@@ -1,15 +1,14 @@
 using PlayerBase;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RotateToPlayer : MonoBehaviour
 {
-    [SerializeField] private Vector3 leftEuler;
-    [SerializeField] private Vector3 rightEuler;
 
-    [SerializeField] private float rotationSpeed = 5;
-
+    [SerializeField] private UnityEvent onLeft;
+    [SerializeField] private UnityEvent onRight;
+    
     private Transform _playerTransform;
-    private Vector3 _targetEuler;
 
     private void Start()
     {
@@ -18,7 +17,13 @@ public class RotateToPlayer : MonoBehaviour
 
     private void Update()
     {
-        _targetEuler = (transform.position.x < _playerTransform.position.x) ? rightEuler : leftEuler;
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(_targetEuler), Time.deltaTime * rotationSpeed);
+        if (transform.position.x > _playerTransform.position.x)
+        {
+            onLeft.Invoke();
+        }
+        else
+        {
+            onRight.Invoke();
+        }
     }
 }

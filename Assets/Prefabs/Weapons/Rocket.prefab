@@ -10,10 +10,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.30990356
-  m_Height: 1.1866424
+  m_Radius: 0.3291298
+  m_Height: 1.1962202
   m_Direction: 1
-  m_Center: {x: 0.000000018588416, y: -0.10291445, z: 0.000000041165936}
+  m_Center: {x: 0.00000001772345, y: -0.09812558, z: 0.000000017723451}
 --- !u!1 &7543178857626433864
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,12 +25,14 @@ GameObject:
   - component: {fileID: 7543178857626433871}
   - component: {fileID: 7543178857626433868}
   - component: {fileID: 7543178857626433870}
+  - component: {fileID: 3790078342507133123}
   - component: {fileID: 7543178857626433865}
   - component: {fileID: 7543178857626433906}
   - component: {fileID: 7543178857626433869}
+  - component: {fileID: 586323850022061790}
   m_Layer: 0
   m_Name: Rocket
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +81,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  rotateSpeed: 0.7
+  rotateSpeed: 1
+--- !u!114 &3790078342507133123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7543178857626433864}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305f12d307312d14e96e45df48ef269b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7543178857626433865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +115,19 @@ MonoBehaviour:
       m_Calls: []
   eventOnDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 586323850022061790}
+        m_TargetAssemblyTypeName: ObjectCreator, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7543178857626433906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +155,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 7543178857626433865}
   dieOnAnyTrigger: 1
+--- !u!114 &586323850022061790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7543178857626433864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6abae9eeb1b2d41978bca8370746df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTransform: {fileID: 7543178857626433871}
+  objectPrefab: {fileID: 2898926938572589410, guid: 7a886dbf0a6543840b5ddfad2a9c2f66, type: 3}
+  destroyDelay: 3
 --- !u!1001 &7543178858502028219
 PrefabInstance:
   m_ObjectHideFlags: 0

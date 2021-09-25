@@ -1,6 +1,7 @@
 ﻿using System;
 using PlayerBase;
 using UnityEngine;
+using WeaponBase;
 
 namespace EnemyBase
 {
@@ -16,7 +17,7 @@ namespace EnemyBase
             {
                 var bullet = other.attachedRigidbody.GetComponent<Bullet>();
 
-                if (null != bullet)
+                if (null != bullet && bullet.enabled)
                 {
                     enemyHealth.TakeDamage(1);
                     bullet.Die();

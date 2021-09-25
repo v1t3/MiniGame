@@ -12,6 +12,8 @@ namespace EnemyBase
 
         [SerializeField] private UnityEvent onTargetVisible;
         [SerializeField] private UnityEvent onTargetInvisible;
+        [SerializeField] private UnityEvent onLeft;
+        [SerializeField] private UnityEvent onRight;
 
         private void Start()
         {
@@ -29,6 +31,15 @@ namespace EnemyBase
             else
             {
                 onTargetInvisible.Invoke();
+            }
+            
+            if (transform.position.x > _playerTransform.position.x)
+            {
+                onLeft.Invoke();
+            }
+            else
+            {
+                onRight.Invoke();
             }
         }
     }
