@@ -14,13 +14,13 @@ namespace WeaponBase
 
         private void OnCollisionEnter(Collision other)
         {
-            Die();
+            Die(0.1f);
         }
 
-        public void Die()
+        public void Die(float delay = 0)
         {
             onDie.Invoke();
-            Destroy(gameObject);
+            Destroy(gameObject, delay);
         }
     }
 }

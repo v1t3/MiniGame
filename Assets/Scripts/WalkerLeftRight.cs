@@ -21,7 +21,7 @@ public class WalkerLeftRight : MonoBehaviour
     
     [SerializeField] private Transform rayStart;
 
-    private Direction _currentDirection;
+    [SerializeField] private Direction currentDirection = Direction.Left;
 
     [SerializeField] private UnityEvent onLeftTarget;
     [SerializeField] private UnityEvent onRightTarget;
@@ -43,13 +43,13 @@ public class WalkerLeftRight : MonoBehaviour
         
         var position = new Vector3(Time.deltaTime * speed, 0, 0);
         
-        if (_currentDirection == Direction.Left)
+        if (currentDirection == Direction.Left)
         {
             transform.position -= position;
 
             if (transform.position.x < leftTarget.position.x)
             {
-                _currentDirection = Direction.Right;
+                currentDirection = Direction.Right;
                 _isStopped = true;
                 Invoke(nameof(ContinueWalk), stopTime);
                 onLeftTarget.Invoke();
@@ -61,7 +61,7 @@ public class WalkerLeftRight : MonoBehaviour
 
             if (transform.position.x > rightTarget.position.x)
             {
-                _currentDirection = Direction.Left;
+                currentDirection = Direction.Left;
                 _isStopped = true;
                 Invoke(nameof(ContinueWalk), stopTime);
                 onRightTarget.Invoke();
