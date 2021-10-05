@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 2970125786917984825}
   - component: {fileID: 2970125786917984830}
   - component: {fileID: 2970125786917984829}
+  - component: {fileID: -3604234416838160115}
   m_Layer: 0
   m_Name: Pig
   m_TagString: Enemy
@@ -474,6 +475,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 2970125786917984831}
   dieOnAnyTrigger: 0
+--- !u!114 &-3604234416838160115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2970125786917984818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2d7369fe4ec7dd45bae65ee2ca3d17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToActivate: 30
 --- !u!1 &2970125787092736362
 GameObject:
   m_ObjectHideFlags: 0
