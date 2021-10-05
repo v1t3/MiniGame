@@ -489,7 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkTime: 0.6
-  blinkSpeed: 30
+  blinkSpeed: 20
   rendererList:
   - {fileID: 3734688370996468272}
   - {fileID: 215738607814683925}
@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d7369fe4ec7dd45bae65ee2ca3d17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToActivate: 30
+  distanceToActivate: 20
 --- !u!1 &1306952295729392972
 GameObject:
   m_ObjectHideFlags: 0

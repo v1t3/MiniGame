@@ -832,10 +832,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -1945419517334755732, guid: 1b23103334b189643aa9593958d5e105, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3384647762896792176, guid: 1b23103334b189643aa9593958d5e105, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 32.95
@@ -1419,10 +1415,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear
       objectReference: {fileID: 0}
-    - target: {fileID: 263155960904235007, guid: 5fc59fc82195e014bba8236a47fa094e, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fc59fc82195e014bba8236a47fa094e, type: 3}
 --- !u!4 &361838890 stripped
@@ -1448,10 +1440,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -1945419517334755732, guid: 1b23103334b189643aa9593958d5e105, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3384647762896792176, guid: 1b23103334b189643aa9593958d5e105, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 77.06
@@ -1761,10 +1749,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -364803820651374871, guid: d3fa5942262f9724ba0312fe2cc29503, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1306952295695165013, guid: d3fa5942262f9724ba0312fe2cc29503, type: 3}
       propertyPath: m_Name
       value: Squirrel (1)
@@ -2087,10 +2071,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -3604234416838160115, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2970125786917984818, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
       propertyPath: m_Name
       value: Pig (2)
@@ -2138,22 +2118,6 @@ PrefabInstance:
     - target: {fileID: 2970125786917984819, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970125787092736363, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 24.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970125787092736363, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.478231
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970125787777067193, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970125787777067193, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.8558097
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
@@ -2643,10 +2607,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -3604234416838160115, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2970125786917984818, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
       propertyPath: m_Name
       value: Pig
@@ -2694,14 +2654,6 @@ PrefabInstance:
     - target: {fileID: 2970125786917984819, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970125787092736363, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970125787092736363, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8ff1342b5001c34d8b9d47a816bb607, type: 3}
@@ -2775,10 +2727,6 @@ PrefabInstance:
     - target: {fileID: 208468242722789525, guid: 5fc59fc82195e014bba8236a47fa094e, type: 3}
       propertyPath: m_Name
       value: Bear (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 263155960904235007, guid: 5fc59fc82195e014bba8236a47fa094e, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fc59fc82195e014bba8236a47fa094e, type: 3}
@@ -3363,9 +3311,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -1945419517334755732, guid: 1b23103334b189643aa9593958d5e105, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
+    - target: {fileID: 3384647762896792176, guid: 1b23103334b189643aa9593958d5e105, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 1.4500008
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384647762896792176, guid: 1b23103334b189643aa9593958d5e105, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3384647762896792180, guid: 1b23103334b189643aa9593958d5e105, type: 3}
       propertyPath: m_RootOrder
@@ -4221,10 +4173,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 263155960904235007, guid: 5fc59fc82195e014bba8236a47fa094e, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fc59fc82195e014bba8236a47fa094e, type: 3}
 --- !u!4 &1208564202 stripped
@@ -4250,10 +4198,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -364803820651374871, guid: d3fa5942262f9724ba0312fe2cc29503, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1306952295695165013, guid: d3fa5942262f9724ba0312fe2cc29503, type: 3}
       propertyPath: m_Name
       value: Squirrel
@@ -4327,10 +4271,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -364803820651374871, guid: d3fa5942262f9724ba0312fe2cc29503, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1306952295695165013, guid: d3fa5942262f9724ba0312fe2cc29503, type: 3}
       propertyPath: m_Name
       value: Squirrel (2)
@@ -4404,18 +4344,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -1945419517334755732, guid: 1b23103334b189643aa9593958d5e105, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3384647762896792176, guid: 1b23103334b189643aa9593958d5e105, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 70.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 3384647762896792176, guid: 1b23103334b189643aa9593958d5e105, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 14.56
-      objectReference: {fileID: 0}
     - target: {fileID: 3384647762896792180, guid: 1b23103334b189643aa9593958d5e105, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -4489,10 +4417,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -1054853266295968695, guid: 778c50c368b286f40bb8987a55b78c22, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1077708698076124280, guid: 778c50c368b286f40bb8987a55b78c22, type: 3}
       propertyPath: m_Name
       value: Rabbit (1)
@@ -4613,10 +4537,6 @@ PrefabInstance:
     - target: {fileID: 208468242722789525, guid: 5fc59fc82195e014bba8236a47fa094e, type: 3}
       propertyPath: m_Name
       value: Bear (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 263155960904235007, guid: 5fc59fc82195e014bba8236a47fa094e, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fc59fc82195e014bba8236a47fa094e, type: 3}
@@ -5249,10 +5169,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -1054853266295968695, guid: 778c50c368b286f40bb8987a55b78c22, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1077708698076124280, guid: 778c50c368b286f40bb8987a55b78c22, type: 3}
       propertyPath: m_Name
       value: Rabbit (2)
@@ -5356,10 +5272,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -1945419517334755732, guid: 1b23103334b189643aa9593958d5e105, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3384647762896792176, guid: 1b23103334b189643aa9593958d5e105, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 11.2
@@ -6313,17 +6225,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -1945419517334755732, guid: 1b23103334b189643aa9593958d5e105, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3384647762896792176, guid: 1b23103334b189643aa9593958d5e105, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 64.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 3384647762896792176, guid: 1b23103334b189643aa9593958d5e105, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 14.56
       objectReference: {fileID: 0}
     - target: {fileID: 3384647762896792180, guid: 1b23103334b189643aa9593958d5e105, type: 3}
       propertyPath: m_RootOrder
@@ -6398,10 +6302,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190462596}
     m_Modifications:
-    - target: {fileID: -1054853266295968695, guid: 778c50c368b286f40bb8987a55b78c22, type: 3}
-      propertyPath: distanceToActivate
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1077708698076124280, guid: 778c50c368b286f40bb8987a55b78c22, type: 3}
       propertyPath: m_Name
       value: Rabbit
