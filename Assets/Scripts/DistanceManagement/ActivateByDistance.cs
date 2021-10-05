@@ -53,7 +53,10 @@ namespace DistanceManagement
 
         private void OnDestroy()
         {
-            _activator.objectsToActivate.Remove(this);
+            if (_activator)
+            {
+                _activator.objectsToActivate.Remove(this);
+            }
         }
 
         private void OnDrawGizmosSelected()

@@ -12,22 +12,26 @@ public class Gun : MonoBehaviour
     
     [SerializeField] private float bulletSpeed = 15f;
     [SerializeField] private float shotPeriod = 0.2f;
-    private float _timer;
 
     [SerializeField] private AudioSource shotSound;
+    
+    [SerializeField] private bool automatic;
+    
+    private float _timer;
 
     private void Update()
     {
         _timer += Time.deltaTime;
-
-        if (_timer > shotPeriod && Input.GetMouseButtonDown(0))
+        var inputType = automatic ? Input.GetMouseButton(0) : Input.GetMouseButtonDown(0);
+        
+        if (_timer > shotPeriod && inputType)
         {
             _timer = 0;
             Shot();
         }
     }
 
-    private void Shot()
+    public virtual void Shot()
     {
         var newBullet = Instantiate(bulletPrefab, spawn.position, Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().velocity = spawn.forward * bulletSpeed;
@@ -43,5 +47,19 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         
         flash.SetActive(false);
+    }
+
+    public virtual void Activate()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public virtual void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public virtual void AddBullets(int bulletsCount)
+    {
     }
 }
