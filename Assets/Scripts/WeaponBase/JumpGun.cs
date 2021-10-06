@@ -22,7 +22,7 @@ namespace WeaponBase
         {
             if (_currentCharge < maxCharge)
             {
-                _currentCharge += Time.deltaTime;
+                _currentCharge += Time.unscaledDeltaTime;
                 _isCharged = false;
                 chargeIcon.SetChargeValue(_currentCharge, maxCharge);
             }

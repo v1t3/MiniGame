@@ -21,9 +21,9 @@ public class Gun : MonoBehaviour
 
     private void Update()
     {
-        _timer += Time.deltaTime;
+        _timer += Time.unscaledDeltaTime;
         var inputType = automatic ? Input.GetMouseButton(0) : Input.GetMouseButtonDown(0);
-        
+
         if (_timer > shotPeriod && inputType)
         {
             _timer = 0;
