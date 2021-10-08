@@ -17,6 +17,8 @@ public class Gun : MonoBehaviour
     
     [SerializeField] private bool automatic;
     
+    [SerializeField] private ParticleSystem shotEffect;
+    
     private float _timer;
 
     private void Update()
@@ -36,8 +38,17 @@ public class Gun : MonoBehaviour
         var newBullet = Instantiate(bulletPrefab, spawn.position, Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().velocity = spawn.forward * bulletSpeed;
         
-        shotSound.Play();
         StartCoroutine(ShowFlash());
+
+        if (shotSound)
+        {
+            shotSound.Play();
+        }
+
+        if (shotEffect)
+        {
+            shotEffect.Play();
+        }
     }
 
     private IEnumerator ShowFlash()

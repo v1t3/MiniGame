@@ -1,21 +1,36 @@
+using System;
 using UnityEngine;
 
 namespace WeaponBase
 {
     public class PlayerArmory : MonoBehaviour
     {
+        public enum Armory
+        {
+            Pistol = 0,
+            MachineGun = 1,
+            JumpGun = 2
+        }
+        
         [SerializeField] private Gun[] guns;
 
-        public int currentGunIndex;
+        public Armory currentGun;
 
         private void Start()
         {
-            TakeGunByIndex(currentGunIndex);
+            TakeGunByIndex(currentGun.GetHashCode());
         }
 
         public void TakeGunByIndex(int index)
         {
-            currentGunIndex = index;
+            foreach (Armory armory in Enum.GetValues(typeof(Armory)))
+            {
+                if (armory.GetHashCode() == index)
+                {
+                    currentGun = armory;
+                    break;
+                }
+            }
 
             for (int i = 0; i < guns.Length; i++)
             {
