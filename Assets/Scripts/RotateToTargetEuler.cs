@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class RotateToTargetEuler : MonoBehaviour
 {
+    [SerializeField] private Transform objectTransform;
     [SerializeField] private Vector3 leftEuler;
     [SerializeField] private Vector3 rightEuler;
     private Vector3 _targetEuler;
@@ -13,8 +14,8 @@ public class RotateToTargetEuler : MonoBehaviour
 
     private void Update()
     {
-        transform.localRotation = Quaternion.Lerp(
-            transform.localRotation,
+        objectTransform.localRotation = Quaternion.Lerp(
+            objectTransform.localRotation,
             Quaternion.Euler(_targetEuler),
             Time.deltaTime * rotationSpeed
         );

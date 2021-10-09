@@ -414,6 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d558b08c63067e4d920e833abcf1de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectTransform: {fileID: 1077708698076124282}
   leftEuler: {x: 0, y: -360, z: 0}
   rightEuler: {x: 0, y: -180, z: 0}
   rotationSpeed: 5
@@ -820,6 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d558b08c63067e4d920e833abcf1de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectTransform: {fileID: 4741557921242369596}
   leftEuler: {x: 0, y: -30, z: 0}
   rightEuler: {x: 0, y: 30, z: 0}
   rotationSpeed: 5

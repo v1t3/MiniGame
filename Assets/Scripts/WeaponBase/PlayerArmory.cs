@@ -21,6 +21,24 @@ namespace WeaponBase
             TakeGunByIndex(currentGun.GetHashCode());
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                TakeGunByIndex(0);
+            }
+            
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                TakeGunByIndex(1);
+            }
+            
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                TakeGunByIndex(2);
+            }
+        }
+
         public void TakeGunByIndex(int index)
         {
             foreach (Armory armory in Enum.GetValues(typeof(Armory)))
