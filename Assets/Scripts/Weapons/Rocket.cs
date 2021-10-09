@@ -25,7 +25,7 @@ public class Rocket : MonoBehaviour
      */
     private void Update()
     {
-        // По неизвестным причинам, ракета отклоняется по z
+        // Исправление отклонения ракеты по z
         transform.position += new Vector3(transform.forward.x, transform.forward.y, 0) * moveSpeed * Time.deltaTime;
 
         Vector3 toPlayer = _playerTransform.position - transform.position;
@@ -42,7 +42,7 @@ public class Rocket : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.attachedRigidbody.GetComponent<Bear>())
+        if (other.attachedRigidbody && other.attachedRigidbody.GetComponent<Bear>())
         {
             GetComponent<Bullet>().enabled = true;
         }
