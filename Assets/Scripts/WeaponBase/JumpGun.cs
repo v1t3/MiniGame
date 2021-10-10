@@ -4,47 +4,30 @@ using UnityEngine;
 
 namespace WeaponBase
 {
-    public class JumpGun : MonoBehaviour
+    public class JumpGun : Gun
     {
+        [Space(5)]
+        [Header("JumpGun")]
         [SerializeField] private Rigidbody playerRb;
-        [SerializeField] private float speed;
-        [SerializeField] private Transform spawn;
-        [SerializeField] private Gun pistol;
+        [SerializeField] private float shotSpeed;
+        [SerializeField] private Transform jumpSpawn;
 
-        [SerializeField] private ChargeIcon chargeIcon;
-
-        public float maxCharge;
-
-        private float _currentCharge;
-        private bool _isCharged;
+        [SerializeField] private JumpGunRecharger recharger;
 
         private void Update()
         {
-            if (_currentCharge < maxCharge)
+            if (recharger.isCharged && Input.GetMouseButtonDown(0))
             {
-                _currentCharge += Time.unscaledDeltaTime;
-                _isCharged = false;
-                chargeIcon.SetChargeValue(_currentCharge, maxCharge);
-            }
-            else
-            {
-                _isCharged = true;
-                chargeIcon.StopCharge();
-            }
-
-            if (_isCharged && Input.GetMouseButtonDown(0))
-            {
-                Shoot();
+                Shot();
             }
         }
 
-        private void Shoot()
+        public override void Shot()
         {
-            pistol.Shot();
-            playerRb.AddForce(-spawn.forward * speed, ForceMode.VelocityChange);
-            _currentCharge = 0;
-            _isCharged = false;
-            chargeIcon.StartCharge();
+            base.Shot();
+            playerRb.velocity = Vector3.zero;
+            playerRb.AddForce(-jumpSpawn.forward * shotSpeed, ForceMode.VelocityChange);
+            recharger.Recharge();
         }
     }
 }

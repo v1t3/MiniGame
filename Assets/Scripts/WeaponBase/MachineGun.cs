@@ -1,26 +1,29 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace WeaponBase
 {
     public class MachineGun : Gun
     {
-        [Space(5)]
-        [Header("Magazine")]
-        public int numberOfBullets;
-        public Text bulletsText;
+        [Space(5)] [Header("MachineGun")] [SerializeField]
+        private int numberOfBullets;
 
-        public PlayerArmory playerArmory;
+        [SerializeField] private Text bulletsText;
+
+        [SerializeField] private UnityEvent onEmptyGunClip;
 
         public override void Shot()
         {
-            base.Shot();
-            numberOfBullets--;
-            UpdateText();
-            
-            if (numberOfBullets <= 0)
+            if (numberOfBullets > 0)
             {
-                playerArmory.TakeGunByIndex(0);
+                base.Shot();
+                numberOfBullets--;
+                UpdateText();
+            }
+            else
+            {
+                onEmptyGunClip.Invoke();
             }
         }
 

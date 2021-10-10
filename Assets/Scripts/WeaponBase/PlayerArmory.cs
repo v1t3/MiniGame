@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace WeaponBase
 {
@@ -7,14 +8,19 @@ namespace WeaponBase
     {
         public enum Armory
         {
-            Pistol = 0,
-            MachineGun = 1,
-            JumpGun = 2
+            Knife = 0,
+            Pistol = 1,
+            MachineGun = 2,
+            JumpGun = 3
         }
         
         [SerializeField] private Gun[] guns;
 
         public Armory currentGun;
+        
+        [Space(10)] 
+        [SerializeField] private UnityEvent onGunChange;
+        [SerializeField] private UnityEvent onBulletsTake;
 
         private void Start()
         {
@@ -37,10 +43,16 @@ namespace WeaponBase
             {
                 TakeGunByIndex(2);
             }
+            
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                TakeGunByIndex(3);
+            }
         }
 
         public void TakeGunByIndex(int index)
         {
+            // Обновить поле текущего оружия
             foreach (Armory armory in Enum.GetValues(typeof(Armory)))
             {
                 if (armory.GetHashCode() == index)
@@ -52,20 +64,29 @@ namespace WeaponBase
 
             for (int i = 0; i < guns.Length; i++)
             {
-                if (i == index)
+                if (guns[i] != null)
                 {
-                    guns[i].Activate();
-                }
-                else
-                {
-                    guns[i].Deactivate();
+                    if (i == index)
+                    {
+                        guns[i].Activate();
+                    }
+                    else
+                    {
+                        guns[i].Deactivate();
+                    }
                 }
             }
+
+            onGunChange.Invoke();
         }
 
         public void AddBullets(int gunIndex, int bulletsCount)
         {
-            guns[gunIndex].AddBullets(bulletsCount);
+            if (guns[gunIndex] != null)
+            {
+                guns[gunIndex].AddBullets(bulletsCount);
+                onBulletsTake.Invoke();
+            }
         }
     }
 }

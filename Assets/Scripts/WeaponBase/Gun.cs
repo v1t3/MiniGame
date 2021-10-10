@@ -7,18 +7,18 @@ namespace WeaponBase
     {
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private GameObject flash;
-    
+
         [SerializeField] private Transform spawn;
-    
+
         [SerializeField] private float bulletSpeed = 15f;
         [SerializeField] private float shotPeriod = 0.2f;
 
         [SerializeField] private AudioSource shotSound;
-    
+
         [SerializeField] private bool automatic;
-    
+
         [SerializeField] private ParticleSystem shotEffect;
-    
+
         private float _timer;
 
         private void Update()
@@ -35,10 +35,16 @@ namespace WeaponBase
 
         public virtual void Shot()
         {
-            var newBullet = Instantiate(bulletPrefab, spawn.position, Quaternion.identity);
-            newBullet.GetComponent<Rigidbody>().velocity = spawn.forward * bulletSpeed;
-        
-            StartCoroutine(ShowFlash());
+            if (bulletPrefab)
+            {
+                var newBullet = Instantiate(bulletPrefab, spawn.position, Quaternion.identity);
+                newBullet.GetComponent<Rigidbody>().velocity = spawn.forward * bulletSpeed;
+            }
+
+            if (flash)
+            {
+                StartCoroutine(ShowFlash());
+            }
 
             if (shotSound)
             {
@@ -54,9 +60,7 @@ namespace WeaponBase
         private IEnumerator ShowFlash()
         {
             flash.SetActive(true);
-
             yield return new WaitForSeconds(0.1f);
-        
             flash.SetActive(false);
         }
 

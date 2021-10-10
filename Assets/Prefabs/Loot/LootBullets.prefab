@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a54c6a247bd400449bbb8ec34fc7a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunIndex: 1
+  gunIndex: 2
   bulletsCount: 30
 --- !u!1001 &1921703185259340693
 PrefabInstance:
