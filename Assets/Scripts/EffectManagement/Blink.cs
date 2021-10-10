@@ -40,7 +40,7 @@ namespace EffectManagement
                 {
                     foreach (var material in rendererItem.materials)
                     {
-                        material.SetColor(EmissionColor, new Color(0.003f, 0, color, 1));
+                        material.SetColor(EmissionColor, new Color(color, 0, 0.003f, 1));
                     }
                 }
     
