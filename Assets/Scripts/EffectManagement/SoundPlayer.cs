@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundPlayer : MonoBehaviour
+namespace EffectManagement
 {
-    [SerializeField] private AudioSource audioSource;
-
-    public void PlaySound()
+    public class SoundPlayer : MonoBehaviour
     {
-        audioSource.Play();
+        [SerializeField] private AudioSource audioSource;
+
+        public void PlaySound()
+        {
+            audioSource.Play();
+        }
     }
 }

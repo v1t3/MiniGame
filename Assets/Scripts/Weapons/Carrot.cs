@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace WeaponBase
+namespace Weapons
 {
     public class Carrot : MonoBehaviour
     {

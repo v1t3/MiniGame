@@ -1,19 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using PlayerBase;
 using UnityEngine;
 
-public class LootHeal : MonoBehaviour
+namespace Loot
 {
-    [SerializeField] private int healthValue = 1;
-    
-    private void OnTriggerEnter(Collider other)
+    public class LootHeal : MonoBehaviour
     {
-        if (other.attachedRigidbody && other.attachedRigidbody.GetComponent<PlayerHealth>())
+        [SerializeField] private int healthValue = 1;
+    
+        private void OnTriggerEnter(Collider other)
         {
-            other.attachedRigidbody.GetComponent<PlayerHealth>().AddHealth(healthValue);
-            Destroy(gameObject);
+            if (other.attachedRigidbody && other.attachedRigidbody.GetComponent<PlayerHealth>())
+            {
+                other.attachedRigidbody.GetComponent<PlayerHealth>().AddHealth(healthValue);
+                Destroy(gameObject);
+            }
         }
     }
 }

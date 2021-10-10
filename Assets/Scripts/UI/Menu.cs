@@ -1,8 +1,8 @@
-using System;
+using Management;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Menu
+namespace UI
 {
     public class Menu : MonoBehaviour
     {

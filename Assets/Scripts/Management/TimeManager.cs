@@ -1,47 +1,49 @@
-using System;
 using UnityEngine;
 
-public class TimeManager : MonoBehaviour
+namespace Management
 {
-    [SerializeField] private float timeScale = 0.3f;
-
-    private float _startFixedDeltaTime;
-    private float _timeScaleBeforeStop;
-    private bool _isStopped;
-
-    private void Start()
+    public class TimeManager : MonoBehaviour
     {
-        _startFixedDeltaTime = Time.fixedDeltaTime;
-    }
+        [SerializeField] private float timeScale = 0.3f;
 
-    private void Update()
-    {
-        if (_isStopped) return;
+        private float _startFixedDeltaTime;
+        private float _timeScaleBeforeStop;
+        private bool _isStopped;
 
-        Time.timeScale = Input.GetMouseButton(1) ? timeScale : 1f;
-
-        Time.fixedDeltaTime = _startFixedDeltaTime * Time.timeScale;
-    }
-
-    public void StopTime()
-    {
-        if (!_isStopped)
+        private void Start()
         {
-            _isStopped = true;
-            _timeScaleBeforeStop = Time.timeScale;
-            Time.timeScale = 0;
+            _startFixedDeltaTime = Time.fixedDeltaTime;
         }
-    }
 
-    public void StartTime()
-    {
-        Time.timeScale = _timeScaleBeforeStop;
-        _isStopped = false;
-    }
+        private void Update()
+        {
+            if (_isStopped) return;
 
-    private void OnDestroy()
-    {
-        Time.timeScale = 1;
-        Time.fixedDeltaTime = _startFixedDeltaTime;
+            Time.timeScale = Input.GetMouseButton(1) ? timeScale : 1f;
+
+            Time.fixedDeltaTime = _startFixedDeltaTime * Time.timeScale;
+        }
+
+        public void StopTime()
+        {
+            if (!_isStopped)
+            {
+                _isStopped = true;
+                _timeScaleBeforeStop = Time.timeScale;
+                Time.timeScale = 0;
+            }
+        }
+
+        public void StartTime()
+        {
+            Time.timeScale = _timeScaleBeforeStop;
+            _isStopped = false;
+        }
+
+        private void OnDestroy()
+        {
+            Time.timeScale = 1;
+            Time.fixedDeltaTime = _startFixedDeltaTime;
+        }
     }
 }

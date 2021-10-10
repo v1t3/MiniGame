@@ -2,28 +2,31 @@ using PlayerBase;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class RotateToPlayer : MonoBehaviour
+namespace EnemyBase
 {
+    public class RotateToPlayer : MonoBehaviour
+    {
 
-    [SerializeField] private UnityEvent onLeft;
-    [SerializeField] private UnityEvent onRight;
+        [SerializeField] private UnityEvent onLeft;
+        [SerializeField] private UnityEvent onRight;
     
-    private Transform _playerTransform;
+        private Transform _playerTransform;
 
-    private void Start()
-    {
-        _playerTransform = FindObjectOfType<PlayerMove>().transform;
-    }
-
-    private void Update()
-    {
-        if (transform.position.x > _playerTransform.position.x)
+        private void Start()
         {
-            onLeft.Invoke();
+            _playerTransform = FindObjectOfType<PlayerMove>().transform;
         }
-        else
+
+        private void Update()
         {
-            onRight.Invoke();
+            if (transform.position.x > _playerTransform.position.x)
+            {
+                onLeft.Invoke();
+            }
+            else
+            {
+                onRight.Invoke();
+            }
         }
     }
 }

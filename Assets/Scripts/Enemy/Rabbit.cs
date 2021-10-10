@@ -1,42 +1,40 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using PlayerBase;
 using UnityEngine;
 
-public class Rabbit : MonoBehaviour
+namespace Enemy
 {
-    [SerializeField] private Animator animator;
-
-    [SerializeField] private float attackPeriod = 5;
-
-    private bool _isPlayerVisible;
-
-    private float _timer;
-    private static readonly int Attack = Animator.StringToHash("Attack");
-
-    private void Start()
+    public class Rabbit : MonoBehaviour
     {
-        _timer = attackPeriod;
-    }
+        [SerializeField] private Animator animator;
 
-    private void Update()
-    {
-        _timer += Time.deltaTime;
+        [SerializeField] private float attackPeriod = 5;
 
-        if (_timer > attackPeriod && _isPlayerVisible)
+        private bool _isPlayerVisible;
+
+        private float _timer;
+        private static readonly int Attack = Animator.StringToHash("Attack");
+
+        private void Start()
         {
-            _timer = 0;
-            animator.SetTrigger(Attack);
+            _timer = attackPeriod;
         }
-    }
 
-    /**
+        private void Update()
+        {
+            _timer += Time.deltaTime;
+
+            if (_timer > attackPeriod && _isPlayerVisible)
+            {
+                _timer = 0;
+                animator.SetTrigger(Attack);
+            }
+        }
+
+        /**
      * Using in Events
      */
-    public void SetPlayerVisible(bool value)
-    {
-        _isPlayerVisible = value;
+        public void SetPlayerVisible(bool value)
+        {
+            _isPlayerVisible = value;
+        }
     }
 }

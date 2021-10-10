@@ -1,31 +1,31 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Throw : MonoBehaviour
+namespace EffectManagement
 {
-    [SerializeField] private GameObject objectPrefab;
-
-    [SerializeField] private float force = 1;
-    [SerializeField] private float maxRotationSpeed;
-
-    [ContextMenu("Throw")]
-    public void ThrowObject()
+    public class Throw : MonoBehaviour
     {
-        GameObject newObject = Instantiate(objectPrefab, transform.position, transform.rotation);
-        var rb = newObject.GetComponent<Rigidbody>();
-        
-        rb.AddForce(transform.forward * force, ForceMode.VelocityChange);
+        [SerializeField] private GameObject objectPrefab;
 
-        if (maxRotationSpeed > 0)
+        [SerializeField] private float force = 1;
+        [SerializeField] private float maxRotationSpeed;
+
+        [ContextMenu("Throw")]
+        public void ThrowObject()
         {
-            rb.angularVelocity = new Vector3(
-                Random.Range(-maxRotationSpeed, maxRotationSpeed),
-                Random.Range(-maxRotationSpeed, maxRotationSpeed),
-                Random.Range(-maxRotationSpeed, maxRotationSpeed)
-            );
+            GameObject newObject = Instantiate(objectPrefab, transform.position, transform.rotation);
+            var rb = newObject.GetComponent<Rigidbody>();
+        
+            rb.AddForce(transform.forward * force, ForceMode.VelocityChange);
+
+            if (maxRotationSpeed > 0)
+            {
+                rb.angularVelocity = new Vector3(
+                    Random.Range(-maxRotationSpeed, maxRotationSpeed),
+                    Random.Range(-maxRotationSpeed, maxRotationSpeed),
+                    Random.Range(-maxRotationSpeed, maxRotationSpeed)
+                );
+            }
         }
     }
 }

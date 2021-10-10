@@ -1,37 +1,37 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using PlayerBase;
 using UnityEngine;
 
-public class Hen : MonoBehaviour
+namespace Enemy
 {
-    [SerializeField] private Rigidbody rb;
-    private Transform _playerTransform;
+    public class Hen : MonoBehaviour
+    {
+        [SerializeField] private Rigidbody rb;
+        private Transform _playerTransform;
     
-    [SerializeField] private float speed = 3;
-    [SerializeField] private float timeToReachSpeed = 5;
+        [SerializeField] private float speed = 3;
+        [SerializeField] private float timeToReachSpeed = 5;
 
-    private bool _isPlayerVisible;
+        private bool _isPlayerVisible;
 
-    private void Start()
-    {
-        _playerTransform = FindObjectOfType<PlayerMove>().transform;
-    }
-
-    private void FixedUpdate()
-    {
-        if (_isPlayerVisible && timeToReachSpeed > 0)
+        private void Start()
         {
-            Vector3 toPlayer = (_playerTransform.position - transform.position).normalized;
-            Vector3 force = rb.mass * (toPlayer * speed - rb.velocity) / timeToReachSpeed;
-
-            rb.AddForce(force);
+            _playerTransform = FindObjectOfType<PlayerMove>().transform;
         }
-    }
 
-    public void SetPlayerVisible(bool value)
-    {
-        _isPlayerVisible = value;
+        private void FixedUpdate()
+        {
+            if (_isPlayerVisible && timeToReachSpeed > 0)
+            {
+                Vector3 toPlayer = (_playerTransform.position - transform.position).normalized;
+                Vector3 force = rb.mass * (toPlayer * speed - rb.velocity) / timeToReachSpeed;
+
+                rb.AddForce(force);
+            }
+        }
+
+        public void SetPlayerVisible(bool value)
+        {
+            _isPlayerVisible = value;
+        }
     }
 }

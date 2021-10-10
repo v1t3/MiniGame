@@ -1,76 +1,77 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+namespace WeaponBase
 {
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private GameObject flash;
-    
-    [SerializeField] private Transform spawn;
-    
-    [SerializeField] private float bulletSpeed = 15f;
-    [SerializeField] private float shotPeriod = 0.2f;
-
-    [SerializeField] private AudioSource shotSound;
-    
-    [SerializeField] private bool automatic;
-    
-    [SerializeField] private ParticleSystem shotEffect;
-    
-    private float _timer;
-
-    private void Update()
+    public class Gun : MonoBehaviour
     {
-        _timer += Time.unscaledDeltaTime;
-        var inputType = automatic ? Input.GetMouseButton(0) : Input.GetMouseButtonDown(0);
+        [SerializeField] private GameObject bulletPrefab;
+        [SerializeField] private GameObject flash;
+    
+        [SerializeField] private Transform spawn;
+    
+        [SerializeField] private float bulletSpeed = 15f;
+        [SerializeField] private float shotPeriod = 0.2f;
 
-        if (_timer > shotPeriod && inputType)
+        [SerializeField] private AudioSource shotSound;
+    
+        [SerializeField] private bool automatic;
+    
+        [SerializeField] private ParticleSystem shotEffect;
+    
+        private float _timer;
+
+        private void Update()
         {
-            _timer = 0;
-            Shot();
-        }
-    }
+            _timer += Time.unscaledDeltaTime;
+            var inputType = automatic ? Input.GetMouseButton(0) : Input.GetMouseButtonDown(0);
 
-    public virtual void Shot()
-    {
-        var newBullet = Instantiate(bulletPrefab, spawn.position, Quaternion.identity);
-        newBullet.GetComponent<Rigidbody>().velocity = spawn.forward * bulletSpeed;
+            if (_timer > shotPeriod && inputType)
+            {
+                _timer = 0;
+                Shot();
+            }
+        }
+
+        public virtual void Shot()
+        {
+            var newBullet = Instantiate(bulletPrefab, spawn.position, Quaternion.identity);
+            newBullet.GetComponent<Rigidbody>().velocity = spawn.forward * bulletSpeed;
         
-        StartCoroutine(ShowFlash());
+            StartCoroutine(ShowFlash());
 
-        if (shotSound)
-        {
-            shotSound.Play();
+            if (shotSound)
+            {
+                shotSound.Play();
+            }
+
+            if (shotEffect)
+            {
+                shotEffect.Play();
+            }
         }
 
-        if (shotEffect)
+        private IEnumerator ShowFlash()
         {
-            shotEffect.Play();
-        }
-    }
+            flash.SetActive(true);
 
-    private IEnumerator ShowFlash()
-    {
-        flash.SetActive(true);
-
-        yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.1f);
         
-        flash.SetActive(false);
-    }
+            flash.SetActive(false);
+        }
 
-    public virtual void Activate()
-    {
-        gameObject.SetActive(true);
-    }
+        public virtual void Activate()
+        {
+            gameObject.SetActive(true);
+        }
 
-    public virtual void Deactivate()
-    {
-        gameObject.SetActive(false);
-    }
+        public virtual void Deactivate()
+        {
+            gameObject.SetActive(false);
+        }
 
-    public virtual void AddBullets(int bulletsCount)
-    {
+        public virtual void AddBullets(int bulletsCount)
+        {
+        }
     }
 }
