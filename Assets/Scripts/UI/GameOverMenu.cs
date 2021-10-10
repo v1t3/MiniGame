@@ -1,14 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace UI
 {
-    public class WelcomeMenu : MonoBehaviour
+    public class GameOverMenu : MonoBehaviour
     {
         [SerializeField] private string sceneToLoad;
         
-        public void StartGame()
+        public void Restart()
         {
             SceneManager.LoadScene(sceneToLoad);
         }

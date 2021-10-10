@@ -1,6 +1,7 @@
 ﻿using System;
 using UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace WeaponBase
 {
@@ -16,6 +17,8 @@ namespace WeaponBase
 
         private void Update()
         {
+            if (EventSystem.current.IsPointerOverGameObject()) return;
+
             if (recharger.isCharged && Input.GetMouseButtonDown(0))
             {
                 Shot();

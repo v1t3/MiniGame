@@ -2,17 +2,27 @@ using PlayerBase;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DeathZone : MonoBehaviour
+namespace LevelManagement
 {
-    private void OnCollisionEnter(Collision other)
+    public class DeathZone : MonoBehaviour
     {
-        if (other.gameObject.GetComponent<PlayerMove>())
+        [SerializeField] private string sceneName;
+        
+        private void OnCollisionEnter(Collision other)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (other.gameObject.GetComponent<PlayerMove>())
+            {
+                LoadScene(sceneName);
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
         }
-        else
+
+        public void LoadScene(string scene)
         {
-            Destroy(other.gameObject);
+            SceneManager.LoadScene(scene);
         }
     }
 }
