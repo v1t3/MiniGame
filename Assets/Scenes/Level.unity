@@ -3440,7 +3440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3384647762896792180, guid: 1b23103334b189643aa9593958d5e105, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3295755
+      value: 1.93
       objectReference: {fileID: 0}
     - target: {fileID: 3384647762896792180, guid: 1b23103334b189643aa9593958d5e105, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6167,6 +6167,10 @@ PrefabInstance:
       propertyPath: chargeIcon
       value: 
       objectReference: {fileID: 519811206}
+    - target: {fileID: 3725889925014302519, guid: e48ec1e9d83d0684cb43d61d5106ccdf, type: 3}
+      propertyPath: currentGun
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3725889925014302521, guid: e48ec1e9d83d0684cb43d61d5106ccdf, type: 3}
       propertyPath: aimTransform
       value: 

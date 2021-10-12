@@ -182,10 +182,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3cb82b2ab4a657740878b3d380e4ed7b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 1
@@ -196,8 +196,9 @@ MonoBehaviour:
   m_Text: "A, D - \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435\nS, Ctrl - \u043F\u0440\u0438\u0441\u0435\u0441\u0442\u044C\n\u041F\u0440\u043E\u0431\u0435\u043B
     - \u043F\u0440\u044B\u0436\u043E\u043A\n\u041B. \u041C\u044B\u0448\u044C - \u043E\u0433\u043E\u043D\u044C\n\u041F.
     \u041C\u044B\u0448\u044C - \u0437\u0430\u043C\u0435\u0434\u043B\u0435\u043D\u0438\u0435
-    \u0432\u0440\u0435\u043C\u0435\u043D\u0438\n1-4 - \u0432\u044B\u0431\u043E\u0440
-    \u043E\u0440\u0443\u0436\u0438\u044F"
+    \u0432\u0440\u0435\u043C\u0435\u043D\u0438\n1-5 - \u0432\u044B\u0431\u043E\u0440
+    \u043E\u0440\u0443\u0436\u0438\u044F\n\u041A\u043E\u043B\u0435\u0441\u043E \u043C\u044B\u0448\u0438
+    - \u0441\u043C\u0435\u043D\u0430 \u043E\u0440\u0443\u0436\u0438\u044F"
 --- !u!222 &116549234
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -11,15 +11,16 @@ namespace WeaponBase
             Knife = 0,
             Pistol = 1,
             MachineGun = 2,
-            JumpGun = 3
+            JumpGun = 3,
+            MassGun = 4
         }
-        
+
         [SerializeField] private Gun[] guns;
 
         public Armory currentGun;
-        
-        [Space(10)] 
-        [SerializeField] private UnityEvent onGunChange;
+        private int _currentGunIndex;
+
+        [Space(10)] [SerializeField] private UnityEvent onGunChange;
         [SerializeField] private UnityEvent onBulletsTake;
 
         private void Start()
@@ -33,20 +34,35 @@ namespace WeaponBase
             {
                 TakeGunByIndex(0);
             }
-            
+
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 TakeGunByIndex(1);
             }
-            
+
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 TakeGunByIndex(2);
             }
-            
+
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
                 TakeGunByIndex(3);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                TakeGunByIndex(4);
+            }
+            
+            // Переключение колёсиком
+            if (Input.GetAxis("Mouse ScrollWheel") > 0 && _currentGunIndex < Enum.GetValues(typeof(Armory)).Length - 1)
+            {
+                TakeGunByIndex(_currentGunIndex + 1);
+            }
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0 && _currentGunIndex > 0)
+            {
+                TakeGunByIndex(_currentGunIndex - 1);
             }
         }
 
@@ -57,6 +73,7 @@ namespace WeaponBase
             {
                 if (armory.GetHashCode() == index)
                 {
+                    _currentGunIndex = index;
                     currentGun = armory;
                     break;
                 }
