@@ -9,7 +9,7 @@ namespace WeaponBase
 
         [SerializeField] private UnityEvent onDie;
 
-        private bool _isCargoCreated;
+        private ConfigurableJoint _joint;
 
         private void Start()
         {
@@ -18,14 +18,14 @@ namespace WeaponBase
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.rigidbody && !_isCargoCreated)
+            if (other.rigidbody && !_joint)
             {
-                _isCargoCreated = true;
                 var newCargo = Instantiate(cargoPrefab, other.rigidbody.position, Quaternion.identity);
-                newCargo.GetComponent<HingeJoint>().connectedBody = other.rigidbody;
+                _joint = newCargo.GetComponent<ConfigurableJoint>();
+                _joint.connectedBody = other.rigidbody;
             }
             
-            Die(0.1f);
+            Die();
         }
 
         public void Die(float delay = 0)

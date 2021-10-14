@@ -20,26 +20,28 @@ namespace PlayerBase
         [SerializeField] private Transform aimTransform;
         [SerializeField] private float rotateSpeed = 10;
         [SerializeField] private float rotateRate = 60;
+        [SerializeField] private float flipSpeed = 10;
         private float _smoothY = 0;
 
-        [SerializeField] private bool _grounded;
+        private int _jumpFrameCounter;
+            
+        public bool grounded;
 
         private void Update()
         {
             LookOnCursor();
 
-            if (_grounded && Input.GetKeyDown(KeyCode.Space))
+            if (grounded && Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
             }
 
             Vector3 targetScale = new Vector3(1, 1, 1);
 
-            if (!_grounded || Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.S))
+            if (!grounded || Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.S))
             {
                 targetScale = new Vector3(1, 0.5f, 1);
             }
-        
 
             colliderTransform.localScale = Vector3.Lerp(
                 colliderTransform.localScale,
@@ -50,12 +52,36 @@ namespace PlayerBase
 
         private void FixedUpdate()
         {
+            _jumpFrameCounter++;
+            
             Move();
+
+            if (_jumpFrameCounter == 3)
+            {
+                Flip();
+            }
+
+            if (grounded)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, Time.deltaTime * flipSpeed);
+            }
         }
 
-        private void Jump()
+        public void Jump()
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            
+            _jumpFrameCounter = 0;
+        }
+
+        private void Flip()
+        {
+            playerRb.freezeRotation = false;
+            
+            Vector3 lookAt = transform.position - aimTransform.position;
+            int direction = (lookAt.x < 0) ? 1 : -1;
+
+            playerRb.AddRelativeTorque(0, 0, flipSpeed * direction, ForceMode.VelocityChange);
         }
 
         private void LookOnCursor()
@@ -74,30 +100,33 @@ namespace PlayerBase
 
         private void OnCollisionStay(Collision other)
         {
+            _jumpFrameCounter = 0;
+            playerRb.freezeRotation = true;
+            
             foreach (var contactPoint in other.contacts)
             {
                 float angle = Vector3.Angle(contactPoint.normal, Vector3.up);
 
                 if (Mathf.Abs(angle) < 45)
                 {
-                    _grounded = true;
+                    grounded = true;
                 }
             }
         }
 
         private void OnCollisionExit(Collision other)
         {
-            _grounded = false;
+            grounded = false;
         }
 
         private void Move()
         {
             float speedMultiplier = forceMultiplierGrounded;
 
-            if (!_grounded)
+            if (!grounded)
             {
                 speedMultiplier = forceMultiplierJump;
-            
+
                 if (
                     (Input.GetAxis("Horizontal") > 0 && playerRb.velocity.x > maxSpeed) ||
                     (Input.GetAxis("Horizontal") < 0 && playerRb.velocity.x < -maxSpeed)
@@ -105,7 +134,9 @@ namespace PlayerBase
                 {
                     speedMultiplier = 0;
                 }
-            } else {
+            }
+            else
+            {
                 //Friction
                 playerRb.AddForce(-playerRb.velocity.x * friction, 0, 0, ForceMode.VelocityChange);
             }
