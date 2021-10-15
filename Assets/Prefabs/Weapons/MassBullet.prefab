@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cargoPrefab: {fileID: 917924330342557508, guid: 94c8d32836afa0c4ea475196eaa044b8, type: 3}
+  ropeStart: {fileID: 917924330342557505, guid: 94c8d32836afa0c4ea475196eaa044b8, type: 3}
   onDie:
     m_PersistentCalls:
       m_Calls: []

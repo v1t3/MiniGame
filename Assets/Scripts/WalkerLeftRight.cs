@@ -11,43 +11,46 @@ public class WalkerLeftRight : MonoBehaviour
         Left,
         Right
     }
-    
+
+    [SerializeField] private Rigidbody selfRb;
+
     [SerializeField] private Transform leftTarget;
     [SerializeField] private Transform rightTarget;
 
     [SerializeField] private float speed;
-
     [SerializeField] private float stopTime;
-    
-    [SerializeField] private Transform rayStart;
 
     [SerializeField] private Direction currentDirection = Direction.Left;
-
     [SerializeField] private UnityEvent onLeftTarget;
     [SerializeField] private UnityEvent onRightTarget;
 
     private bool _isStopped;
+    private Vector3 _currentTarget;
 
     private void Start()
     {
+        selfRb = GetComponent<Rigidbody>();
         leftTarget.parent = null;
         rightTarget.parent = null;
     }
 
     private void Update()
     {
+        Walk();
+    }
+
+    private void Walk()
+    {
         if (_isStopped)
         {
             return;
         }
-        
-        var position = new Vector3(Time.deltaTime * speed, 0, 0);
-        
+
         if (currentDirection == Direction.Left)
         {
-            transform.position -= position;
+            _currentTarget = selfRb.transform.position - Vector3.right;
 
-            if (transform.position.x < leftTarget.position.x)
+            if (selfRb.transform.position.x < leftTarget.position.x)
             {
                 currentDirection = Direction.Right;
                 _isStopped = true;
@@ -57,9 +60,9 @@ public class WalkerLeftRight : MonoBehaviour
         }
         else
         {
-            transform.position += position;
+            _currentTarget = selfRb.transform.position + Vector3.right;
 
-            if (transform.position.x > rightTarget.position.x)
+            if (selfRb.transform.position.x > rightTarget.position.x)
             {
                 currentDirection = Direction.Left;
                 _isStopped = true;
@@ -68,22 +71,14 @@ public class WalkerLeftRight : MonoBehaviour
             }
         }
 
-        if (rayStart)
+        if (!_isStopped)
         {
-            AttachDown();
+            selfRb.MovePosition(Vector3.Slerp(transform.position, _currentTarget, Time.deltaTime * speed));
         }
     }
 
     private void ContinueWalk()
     {
         _isStopped = false;
-    }
-
-    private void AttachDown()
-    {
-        if (rayStart && Physics.Raycast(rayStart.position, Vector3.down, out RaycastHit hit))
-        {
-            transform.position = hit.point;
-        }
     }
 }

@@ -910,6 +910,7 @@ GameObject:
   - component: {fileID: 3725889925014302518}
   - component: {fileID: 3725889925014302519}
   - component: {fileID: 2604279229071135733}
+  - component: {fileID: 5242396664824092806}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -984,6 +985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRb: {fileID: 3725889925014302522}
   bodyTransform: {fileID: 3725889924123027100}
+  lifter: {fileID: 5242396664824092806}
   moveForce: 1
   jumpForce: 12
   maxSpeed: 5
@@ -1168,6 +1170,19 @@ MonoBehaviour:
   ropeStart: {fileID: 137316057}
   maxRopeDistance: 15
   playerMove: {fileID: 3725889925014302521}
+--- !u!114 &5242396664824092806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3725889925014302524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa2781cf21e4724808a068db909496a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getUpSpeed: 10
 --- !u!1 &3725889925035680675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,11 +2425,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 768093e0c0d68ad41b4888d65ac7527c, type: 3}
---- !u!4 &1163005048 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7854028621907526429, guid: 768093e0c0d68ad41b4888d65ac7527c, type: 3}
-  m_PrefabInstance: {fileID: 7854028620923047781}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1163005049 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7854028621907526428, guid: 768093e0c0d68ad41b4888d65ac7527c, type: 3}
@@ -2426,6 +2436,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed01ef158b774a24b2e8367f58542865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1163005048 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7854028621907526429, guid: 768093e0c0d68ad41b4888d65ac7527c, type: 3}
+  m_PrefabInstance: {fileID: 7854028620923047781}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9048213593672960997
 PrefabInstance:
   m_ObjectHideFlags: 0

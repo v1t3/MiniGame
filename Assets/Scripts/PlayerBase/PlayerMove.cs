@@ -7,6 +7,8 @@ namespace PlayerBase
         [SerializeField] private Rigidbody playerRb;
         [SerializeField] private Transform bodyTransform;
 
+        [SerializeField] private Lifter lifter;
+
         [SerializeField] private float moveForce = 1f;
         [SerializeField] private float jumpForce = 10f;
         [SerializeField] private float maxSpeed = 5f;
@@ -63,7 +65,7 @@ namespace PlayerBase
 
             if (grounded)
             {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, Time.deltaTime * flipSpeed);
+                lifter.GetUp();
             }
         }
 

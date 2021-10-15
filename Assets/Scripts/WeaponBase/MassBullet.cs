@@ -23,6 +23,10 @@ namespace WeaponBase
                 var newCargo = Instantiate(cargoPrefab, other.rigidbody.position, Quaternion.identity);
                 _joint = newCargo.GetComponent<ConfigurableJoint>();
                 _joint.connectedBody = other.rigidbody;
+                
+                //Привяжем груз к месту касания
+                var localPoint = other.rigidbody.transform.InverseTransformPoint(other.contacts[0].point);
+                _joint.connectedAnchor = localPoint;
             }
             
             Die();
