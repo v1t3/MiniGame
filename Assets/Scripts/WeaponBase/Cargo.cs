@@ -18,7 +18,7 @@ namespace WeaponBase
 
         private void Update()
         {
-            if (joint.connectedBody)
+            if (joint.connectedBody && joint.connectedBody.gameObject.activeSelf)
             {
                 ropeRenderer.Draw(ropeStart.position, joint.connectedBody.position, ropeLength);
             }

@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 3384647762896792182}
   - component: {fileID: 3384647762896792176}
   - component: {fileID: -1945419517334755732}
+  - component: {fileID: 1626206756968927769}
   m_Layer: 0
   m_Name: Hen
   m_TagString: Enemy
@@ -445,6 +446,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToActivate: 20
+--- !u!114 &1626206756968927769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3384647762896792184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab83474eac864fc4798df213643a3775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minPositionY: -50
+  onMinPositionY:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3384647762896792186}
+        m_TargetAssemblyTypeName: EnemyBase.EnemyHealth, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3384647763309013095
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,9 +762,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b726a3efddd0f844b591f993a22b53c, type: 3}
---- !u!1 &2466220956358787743 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b726a3efddd0f844b591f993a22b53c, type: 3}
+--- !u!23 &7045510098211918612 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3513369361077785382, guid: 8b726a3efddd0f844b591f993a22b53c, type: 3}
   m_PrefabInstance: {fileID: 3384647763436175310}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2986474002263021605 stripped
@@ -743,14 +772,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b726a3efddd0f844b591f993a22b53c, type: 3}
   m_PrefabInstance: {fileID: 3384647763436175310}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &7045510098211918612 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -3513369361077785382, guid: 8b726a3efddd0f844b591f993a22b53c, type: 3}
-  m_PrefabInstance: {fileID: 3384647763436175310}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &6935233060487381158 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -3547065691057438872, guid: 8b726a3efddd0f844b591f993a22b53c, type: 3}
+--- !u!1 &2466220956358787743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b726a3efddd0f844b591f993a22b53c, type: 3}
   m_PrefabInstance: {fileID: 3384647763436175310}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &1801794359334112281 stripped
@@ -781,5 +805,10 @@ MeshRenderer:
 --- !u!23 &4429543523647629131 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7818168237907453819, guid: 8b726a3efddd0f844b591f993a22b53c, type: 3}
+  m_PrefabInstance: {fileID: 3384647763436175310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6935233060487381158 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3547065691057438872, guid: 8b726a3efddd0f844b591f993a22b53c, type: 3}
   m_PrefabInstance: {fileID: 3384647763436175310}
   m_PrefabAsset: {fileID: 0}

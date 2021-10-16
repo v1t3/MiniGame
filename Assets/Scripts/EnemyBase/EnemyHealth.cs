@@ -21,7 +21,7 @@ namespace EnemyBase
             }
         }
 
-        private void Die()
+        public void Die()
         {
             eventOnDie.Invoke();
             Destroy(gameObject);

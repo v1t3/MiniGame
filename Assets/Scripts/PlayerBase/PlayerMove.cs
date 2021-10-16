@@ -25,6 +25,7 @@ namespace PlayerBase
         [SerializeField] private float flipSpeed = 10;
         private float _smoothY = 0;
 
+        [SerializeField] private int framesDelay = 3;
         private int _jumpFrameCounter;
             
         public bool grounded;
@@ -58,7 +59,7 @@ namespace PlayerBase
             
             Move();
 
-            if (_jumpFrameCounter == 3)
+            if (_jumpFrameCounter == framesDelay)
             {
                 Flip();
             }

@@ -8,7 +8,7 @@ namespace WeaponBase
     {
         public enum Armory
         {
-            Knife = 0,
+            // Knife = 0,
             Pistol = 1,
             MachineGun = 2,
             JumpGun = 3,

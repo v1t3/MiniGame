@@ -911,6 +911,7 @@ GameObject:
   - component: {fileID: 3725889925014302519}
   - component: {fileID: 2604279229071135733}
   - component: {fileID: 5242396664824092806}
+  - component: {fileID: 57096919}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -926,7 +927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3725889925014302524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3725889924123027100}
@@ -986,18 +987,19 @@ MonoBehaviour:
   playerRb: {fileID: 3725889925014302522}
   bodyTransform: {fileID: 3725889924123027100}
   lifter: {fileID: 5242396664824092806}
-  moveForce: 1
+  moveForce: 4
   jumpForce: 12
   maxSpeed: 5
-  friction: 0.1
+  friction: 0.5
   forceMultiplierGrounded: 1
-  forceMultiplierJump: 0.5
+  forceMultiplierJump: 0.3
   colliderTransform: {fileID: 3725889923242629854}
   squatRate: 10
   aimTransform: {fileID: 0}
   rotateSpeed: 10
   rotateRate: 60
-  flipSpeed: 10
+  flipSpeed: 5
+  framesDelay: 3
   grounded: 0
 --- !u!114 &3725889925014302523
 MonoBehaviour:
@@ -1070,19 +1072,7 @@ MonoBehaviour:
         m_CallState: 2
   eventOnDie:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelManagement.DeathZone, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: GameOver
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &3725889925014302518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,7 +1154,7 @@ MonoBehaviour:
   ropeRenderer: {fileID: 470593317}
   hook: {fileID: 1614430752}
   spawn: {fileID: 3725889925075533222}
-  speed: 15
+  speed: 25
   springValue: 50
   damperValue: 5
   ropeStart: {fileID: 137316057}
@@ -1183,6 +1173,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   getUpSpeed: 10
+--- !u!114 &57096919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3725889925014302524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab83474eac864fc4798df213643a3775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minPositionY: -50
+  onMinPositionY:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3725889925014302523}
+        m_TargetAssemblyTypeName: PlayerBase.PlayerHealth, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3725889925035680675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,11 +1803,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b1224e57595df47bc84fdd3ab8ca98, type: 3}
---- !u!4 &3725889925124871995 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2886644827263912460, guid: 50b1224e57595df47bc84fdd3ab8ca98, type: 3}
-  m_PrefabInstance: {fileID: 1998024869157969207}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3725889925124871992 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2886644827263912463, guid: 50b1224e57595df47bc84fdd3ab8ca98, type: 3}
@@ -1801,6 +1814,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa19ce78d779411b8bc22e92e0aaa767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &3725889925124871995 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2886644827263912460, guid: 50b1224e57595df47bc84fdd3ab8ca98, type: 3}
+  m_PrefabInstance: {fileID: 1998024869157969207}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3725889923196239659
 PrefabInstance:
   m_ObjectHideFlags: 0

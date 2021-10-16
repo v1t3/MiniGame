@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: -3386681340477747601}
   - component: {fileID: 7488473979785851800}
   - component: {fileID: 8916034968285107499}
+  - component: {fileID: 4803738794389229723}
   m_Layer: 0
   m_Name: Cargo
   m_TagString: Untagged
@@ -344,6 +345,34 @@ MonoBehaviour:
   joint: {fileID: 7488473979785851800}
   ropeStart: {fileID: 3647459796280101878}
   ropeLength: 1
+--- !u!114 &4803738794389229723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917924330342557508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab83474eac864fc4798df213643a3775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minPositionY: -50
+  onMinPositionY:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -3853126421001931087}
+        m_TargetAssemblyTypeName: EnemyBase.EnemyHealth, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &3562073425374473974
 BoxCollider:
   m_ObjectHideFlags: 0

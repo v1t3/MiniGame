@@ -34,6 +34,9 @@ MonoBehaviour:
   spawn: {fileID: 1077708697797129982}
   objectPrefab: {fileID: 4209811404544059017, guid: 360aee4e37a6b6a43bda79cf0260c8a7, type: 3}
   flySpeed: 4
+  collidersToIgnore:
+  - {fileID: 1077708698052104913}
+  - {fileID: 1077708698655119950}
 --- !u!114 &159213167479620660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +119,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077708698052104919}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5923309
   m_Height: 1.6213679
@@ -135,11 +138,11 @@ GameObject:
   - component: {fileID: 1077708698076124283}
   - component: {fileID: 1077708698076124263}
   - component: {fileID: 1077708698076124262}
-  - component: {fileID: 1077708698076124261}
-  - component: {fileID: 1077708698076124260}
   - component: {fileID: 1588289770}
   - component: {fileID: 13689290}
   - component: {fileID: -1054853266295968695}
+  - component: {fileID: 5751375619424076208}
+  - component: {fileID: 4359341105423560627}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Enemy
@@ -177,7 +180,7 @@ Rigidbody:
   m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 88
@@ -278,33 +281,6 @@ MonoBehaviour:
   - {fileID: 6514526803615331591}
   - {fileID: 3241338685243650491}
   - {fileID: 7483256872737584646}
---- !u!114 &1077708698076124261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1077708698076124280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f8623bdeae4c1581ca1a9e9ee2b5f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageValue: 1
---- !u!114 &1077708698076124260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1077708698076124280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f50f6a3a44254ed28d487315dfb15952, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: {fileID: 1077708698076124263}
-  dieOnAnyTrigger: 0
 --- !u!114 &1588289770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6018358dd8cb3f42af1e8d188c02add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundaryDistance: 10
+  boundaryDistance: 25
   onTargetVisible:
     m_PersistentCalls:
       m_Calls:
@@ -430,7 +406,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d7369fe4ec7dd45bae65ee2ca3d17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToActivate: 20
+  distanceToActivate: 25
+--- !u!114 &5751375619424076208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077708698076124280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff7aa0de84d1524b962c220dd312869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageValue: 1
+--- !u!114 &4359341105423560627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077708698076124280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 451f0b0926795454ba94a1fcd776a592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 1077708698076124263}
+  dieOnAnyCollision: 0
 --- !u!1 &1077708698338617806
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +486,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 1.01
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -597,7 +600,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077708698655119948}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.64457226, y: 0.9400229, z: 0.6829784}
@@ -654,7 +657,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 1.01
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -689,7 +692,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0

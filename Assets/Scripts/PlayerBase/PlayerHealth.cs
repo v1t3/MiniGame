@@ -1,3 +1,4 @@
+using Management;
 using UI;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,6 +7,8 @@ namespace PlayerBase
 {
     public class PlayerHealth : MonoBehaviour
     {
+        private GameManager _gameManager;
+        
         [SerializeField] private int health = 5;
         [SerializeField] private int maxHealth = 8;
 
@@ -19,6 +22,7 @@ namespace PlayerBase
 
         private void Start()
         {
+            _gameManager = FindObjectOfType<GameManager>();
             healthUI.Setup(maxHealth);
             healthUI.DisplayHealth(health);
         }
@@ -61,10 +65,11 @@ namespace PlayerBase
             eventOnAddHealth.Invoke();
         }
 
-        private void Die()
+        public void Die()
         {
             Debug.Log("Die");
             eventOnDie.Invoke();
+            _gameManager.GameOver();
         }
     }
 }
