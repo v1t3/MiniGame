@@ -1,13 +1,10 @@
-using Enemy;
 using PlayerBase;
 using UnityEngine;
-using WeaponBase;
 
 namespace Weapons
 {
     public class Rocket : MonoBehaviour
     {
-        // private Rigidbody _rigidbody;
         private Transform _playerTransform;
 
         [SerializeField] private float moveSpeed = 1;
@@ -16,7 +13,6 @@ namespace Weapons
         private void Start()
         {
             _playerTransform = FindObjectOfType<PlayerMove>().transform;
-            // _rigidbody = GetComponent<Rigidbody>();
         }
 
         /**
@@ -37,14 +33,6 @@ namespace Weapons
                 Quaternion.LookRotation(toPlayer, Vector3.forward),
                 Time.deltaTime * rotateSpeed
             );
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.attachedRigidbody && other.attachedRigidbody.GetComponent<Bear>())
-            {
-                GetComponent<Bullet>().enabled = true;
-            }
         }
     }
 }

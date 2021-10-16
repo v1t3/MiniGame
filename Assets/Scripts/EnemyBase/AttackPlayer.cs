@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using PlayerBase;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ namespace EnemyBase
         [SerializeField] private GameObject objectPrefab;
 
         [SerializeField] private float flySpeed = 1;
+
+        [SerializeField] private List<Collider> collidersToIgnore = new List<Collider>();
 
         private void Start()
         {
@@ -29,6 +32,15 @@ namespace EnemyBase
                 spawn.rotation
             );
             newBullet.GetComponent<Rigidbody>().velocity = toTarget * flySpeed;
+
+            var newBulletCollider = newBullet.GetComponentInChildren<Collider>();
+            
+            // Игнорируем коллайдер снаряда 
+            foreach (var colliderItem in collidersToIgnore)
+            {
+                Physics.IgnoreCollision(colliderItem, newBulletCollider);
+            }
+
             Destroy(newBullet, 15);
         }
     }
