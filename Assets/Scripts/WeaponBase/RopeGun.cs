@@ -1,8 +1,5 @@
-﻿using System;
-using PlayerBase;
+﻿using PlayerBase;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.UIElements;
 
 public enum RopeState
 {
@@ -33,7 +30,7 @@ namespace WeaponBase
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetMouseButtonDown(2))
             {
                 Shot();
             }
