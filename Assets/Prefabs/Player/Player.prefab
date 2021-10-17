@@ -986,21 +986,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRb: {fileID: 3725889925014302522}
   bodyTransform: {fileID: 3725889924123027100}
-  lifter: {fileID: 5242396664824092806}
   moveForce: 4
   jumpForce: 12
   maxSpeed: 5
   friction: 0.5
   forceMultiplierGrounded: 1
   forceMultiplierJump: 0.3
+  grounded: 0
+  lifter: {fileID: 5242396664824092806}
   colliderTransform: {fileID: 3725889923242629854}
   squatRate: 10
+  squatHeightDelay: 0.5
   aimTransform: {fileID: 0}
   rotateSpeed: 10
   rotateRate: 60
   flipSpeed: 5
-  framesDelay: 3
-  grounded: 0
+  flipDelay: 0.1
 --- !u!114 &3725889925014302523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1103,7 +1104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guns:
-  - {fileID: 0}
   - {fileID: 3725889925124871992}
   - {fileID: 3725889924621777768}
   - {fileID: 3725889925304110584}

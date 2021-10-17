@@ -7,62 +7,72 @@ namespace PlayerBase
         [SerializeField] private Rigidbody playerRb;
         [SerializeField] private Transform bodyTransform;
 
-        [SerializeField] private Lifter lifter;
-
+        [Header("Movement")]
         [SerializeField] private float moveForce = 1f;
         [SerializeField] private float jumpForce = 10f;
         [SerializeField] private float maxSpeed = 5f;
         [SerializeField] private float friction = 0.1f;
         [SerializeField] private float forceMultiplierGrounded = 1f;
         [SerializeField] private float forceMultiplierJump = 0.5f;
+        public bool grounded;
+        private Vector3 _positionBeforeJump;
 
+        [Header("Squat")]
+        [SerializeField] private Lifter lifter;
         [SerializeField] private Transform colliderTransform;
         [SerializeField] private float squatRate = 10f;
+        [SerializeField] private float squatHeightDelay = 0.5f;
+        private Vector3 _targetScale;
 
+        [Header("Look at cursor")]
         [SerializeField] private Transform aimTransform;
         [SerializeField] private float rotateSpeed = 10;
         [SerializeField] private float rotateRate = 60;
-        [SerializeField] private float flipSpeed = 10;
         private float _smoothY = 0;
 
-        [SerializeField] private int framesDelay = 3;
-        private int _jumpFrameCounter;
-            
-        public bool grounded;
+        [Header("Flip")]
+        [SerializeField] private float flipSpeed = 10;
+        [SerializeField] private float flipDelay = 0.1f;
 
         private void Update()
         {
             LookOnCursor();
 
-            if (grounded && Input.GetKeyDown(KeyCode.Space))
+            _targetScale = new Vector3(1, 1, 1);
+
+            if (grounded)
             {
-                Jump();
+                _positionBeforeJump = transform.position;
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    Jump();
+                }
+            }
+            else
+            {
+                // Присесть, если высота прыжка больше установленной
+                if (Mathf.Abs(transform.position.y - _positionBeforeJump.y) > squatHeightDelay)
+                {
+                    Seat();
+                }
             }
 
-            Vector3 targetScale = new Vector3(1, 1, 1);
-
-            if (!grounded || Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.LeftControl))
             {
-                targetScale = new Vector3(1, 0.5f, 1);
+                Seat();
             }
 
             colliderTransform.localScale = Vector3.Lerp(
                 colliderTransform.localScale,
-                targetScale,
+                _targetScale,
                 Time.deltaTime * squatRate
             );
         }
 
         private void FixedUpdate()
         {
-            _jumpFrameCounter++;
-            
             Move();
-
-            if (_jumpFrameCounter == framesDelay)
-            {
-                Flip();
-            }
 
             if (grounded)
             {
@@ -73,8 +83,7 @@ namespace PlayerBase
         public void Jump()
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
-            
-            _jumpFrameCounter = 0;
+            Invoke(nameof(Flip), flipDelay);
         }
 
         private void Flip()
@@ -85,6 +94,11 @@ namespace PlayerBase
             int direction = (lookAt.x < 0) ? 1 : -1;
 
             playerRb.AddRelativeTorque(0, 0, flipSpeed * direction, ForceMode.VelocityChange);
+        }
+
+        private void Seat()
+        {
+            _targetScale = new Vector3(1, 0.5f, 1);
         }
 
         private void LookOnCursor()
@@ -103,7 +117,6 @@ namespace PlayerBase
 
         private void OnCollisionStay(Collision other)
         {
-            _jumpFrameCounter = 0;
             playerRb.freezeRotation = true;
             
             foreach (var contactPoint in other.contacts)
