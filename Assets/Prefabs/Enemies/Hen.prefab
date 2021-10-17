@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3384647762896792181}
-  speed: 5
+  speed: 6
   timeToReachSpeed: 2
 --- !u!114 &3384647762896792187
 MonoBehaviour:

@@ -6,18 +6,10 @@ namespace WeaponBase
 {
     public class PlayerArmory : MonoBehaviour
     {
-        public enum Armory
-        {
-            // Knife = 0,
-            Pistol = 1,
-            MachineGun = 2,
-            JumpGun = 3,
-            MassGun = 4
-        }
-
         [SerializeField] private Gun[] guns;
 
-        public Armory currentGun;
+        [SerializeField] private KeyCode[] keyCodes;
+
         private int _currentGunIndex;
 
         [Space(10)] [SerializeField] private UnityEvent onGunChange;
@@ -25,38 +17,21 @@ namespace WeaponBase
 
         private void Start()
         {
-            TakeGunByIndex(currentGun.GetHashCode());
+            TakeGunByIndex(_currentGunIndex);
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            for (int i = 0, len = keyCodes.Length; i < len; i++)
             {
-                TakeGunByIndex(0);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                TakeGunByIndex(1);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                TakeGunByIndex(2);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                TakeGunByIndex(3);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha5))
-            {
-                TakeGunByIndex(4);
+                if (Input.GetKeyDown(keyCodes[i]))
+                {
+                    TakeGunByIndex(i);
+                }
             }
             
             // Переключение колёсиком
-            if (Input.GetAxis("Mouse ScrollWheel") > 0 && _currentGunIndex < Enum.GetValues(typeof(Armory)).Length - 1)
+            if (Input.GetAxis("Mouse ScrollWheel") > 0 && _currentGunIndex < guns.Length - 1)
             {
                 TakeGunByIndex(_currentGunIndex + 1);
             }
@@ -68,16 +43,7 @@ namespace WeaponBase
 
         public void TakeGunByIndex(int index)
         {
-            // Обновить поле текущего оружия
-            foreach (Armory armory in Enum.GetValues(typeof(Armory)))
-            {
-                if (armory.GetHashCode() == index)
-                {
-                    _currentGunIndex = index;
-                    currentGun = armory;
-                    break;
-                }
-            }
+            _currentGunIndex = index;
 
             for (int i = 0; i < guns.Length; i++)
             {

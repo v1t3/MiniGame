@@ -410,7 +410,7 @@ MonoBehaviour:
   selfRb: {fileID: 0}
   leftTarget: {fileID: 2970125787777067193}
   rightTarget: {fileID: 2970125787092736363}
-  speed: 3
+  speed: 4
   stopTime: 0.5
   currentDirection: 0
   onLeftTarget:
